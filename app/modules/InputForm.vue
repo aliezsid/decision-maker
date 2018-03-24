@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import _ from "lodash";
+import randomNumber from "lodash/fp/random";
 export default {
   name: "InputForm",
   data: () => ({
@@ -95,7 +95,7 @@ export default {
         return;
       }
       this.getNumberIndexes();
-      const result = Math.round(_.random(0, 100, true) * 100) / 100;
+      const result = Math.round(randomNumber(0, 100, true) * 100) / 100;
       const finalObject = this.decisions.filter(
         decision => decision.from <= result && decision.to >= result
       );
